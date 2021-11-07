@@ -1,0 +1,20 @@
+import sqlite3
+
+db=sqlite3.connect("pizza.sqlite3")
+#db.execute("CREATE TABLE IF NOT EXISTS pizza(order_Id INTEGER,status TEXT,Name TEXT,mobile TEXT,Address TEXT,Email TEXT,Type INTEGER)")
+#db.execute("INSERT INTO pizza VALUES(1,'Cancelled','Bharath','9346535315','Telangana','bommanibharath9346@gmail.com',3)")
+#db.execute("INSERT INTO pizza VALUES(1,'Pending','Bharath','9346535315','Telangana','bommanibharath9346@gmail.com',3)")
+#db.execute("INSERT INTO pizza VALUES(1,'Served','Bharath','9346535315','Telangana','bommanibharath9346@gmail.com',3)")
+cursor =db.cursor()
+cursor.execute("SELECT * FROM pizza")
+for order_Id,status,Name,mobile,Address,Email,Type in cursor:
+    print(order_Id)
+    print(status)
+    print(Name)
+    print(mobile)
+    print(Address)
+    print(Email)
+    print(Type)
+cursor.close()
+#db.commit()
+db.close()
